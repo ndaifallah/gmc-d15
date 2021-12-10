@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import NavBar from "../components/navBar";
+import SearchBar from "../components/searchBar";
 
-class Main extends Component {
+class Home extends Component {
 	render() {
-		return <div></div>;
+		return (
+			<div>
+				<NavBar />
+				<SearchBar />
+			</div>
+		);
 	}
 }
-export default Main;
+export default Home;
