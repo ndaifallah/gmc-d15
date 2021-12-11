@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Card, Input, Cascader, Button } from "antd";
+import { Card, Input, Cascader, Button, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+
 import UploadImg from "./uploadImg";
 const { TextArea } = Input;
 const genderOptions = [
@@ -37,7 +39,27 @@ class AddArticle extends Component {
       name: "",
       description: "",
       price: "",
+      fileList: [],
     };
+  }
+
+  sendArticle = async () => {
+    try {
+      let form = new FormData();
+      form.append('image', this.state.fileList[0].originFileObj)
+      form.append('name', this.state.name);
+      let options = {
+        method: 'POST',
+        headers: {
+          token: localStorage.getItem('TOKEN')
+        },
+        body: form
+      };
+      await fetch("http://localhost:780/additem", options);
+    }catch (err) {
+      console.log(err);
+    }
+    
   }
   render() {
     return (
@@ -93,9 +115,20 @@ class AddArticle extends Component {
           />
           <br />
           <br />
-          <UploadImg />
+          {/* <UploadImg /> */}
+          <Upload
+          // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          listType="picture"
+          // defaultFileList={[...fileList]}
+          onChange={({fileList}) => {
+            console.log(fileList);
+            this.setState({fileList})
+          }}
+        >
+          <Button icon={<UploadOutlined />}>Upload</Button>
+        </Upload>
           <br />
-          <Button type="primary" block>
+          <Button type="primary" onClick={this.sendArticle}block>
             Publish
           </Button>
         </Card>
