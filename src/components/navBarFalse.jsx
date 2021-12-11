@@ -23,6 +23,7 @@ class NavBarFalse extends Component {
 					type="primary"
 					style={{ width: 100, margin: 10 }}
 					onClick={() => {
+						localStorage.removeItem("TOKEN");
 						this.props.history.push("/home");
 						this.props.dispatch({
 							type: "LOGOUT",
