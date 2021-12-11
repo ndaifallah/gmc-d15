@@ -15,7 +15,7 @@ class Checkout extends Component {
     console.log(this.props);
     return (
       <div className="site-card-border-less-wrapper">
-        <Card title="Mon Panier" bordered={false} style={{ width: 400 }}>
+        <Card title="Mes Achats" bordered={false} style={{ width: 400 }}>
           <h3>
             Merci de bien vouloir verifiez vos achats et effectuer les etapes
             ci-dessous
