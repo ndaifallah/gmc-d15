@@ -137,7 +137,7 @@ class Login extends Component {
 						</Button>
 						<Button
 							type="link"
-							onClick={() => this.props.history.push("/signup")}
+							onClick={() => this.props.history.push("/home")}
 						>
 							I dont have an account
 						</Button>
