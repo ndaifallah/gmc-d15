@@ -17,6 +17,19 @@ class Home extends Component {
 				)}
 
 				<SearchBar />
+				<Button type="primary" onClick={showDrawer}>
+					Open
+				</Button>
+				{/* <Drawer
+					title="Basic Drawer"
+					placement="right"
+					onClose={onClose}
+					visible={visible}
+				>
+					<p>Some contents...</p>
+					<p>Some contents...</p>
+					<p>Some contents...</p>
+				</Drawer> */}
 			</div>
 		);
 	}
