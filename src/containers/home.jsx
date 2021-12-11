@@ -4,6 +4,7 @@ import SearchBar from "../components/searchBar";
 import { MapStateToProps, connect } from "react-redux";
 import NavBarFalse from "../components/navBarFalse";
 import { Drawer, Button } from "antd";
+import NavBarTrue from "../components/navBarTrue";
 
 class Home extends Component {
 	constructor(props) {
@@ -25,9 +26,9 @@ class Home extends Component {
 		return (
 			<div>
 				{this.props.isLogged ? (
-					<NavBar history={this.props.history} />
-				) : (
 					<NavBarFalse history={this.props.history} />
+				) : (
+					<NavBarTrue history={this.props.history} />
 				)}
 
 				<SearchBar />

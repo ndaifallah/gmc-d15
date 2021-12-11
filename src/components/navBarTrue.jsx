@@ -17,13 +17,13 @@ class NavBarTrue extends Component {
 				<Button
 					type="primary"
 					style={{ width: 100, margin: 10 }}
-					onClick={this.props.history.push("/login")}
+					onClick={() => this.props.history.push("/login")}
 				>
 					LogIn
 				</Button>
 				<Button
 					style={{ width: 100, margin: 10 }}
-					onClick={this.props.history.push("/signup")}
+					onClick={() => this.props.history.push("/signup")}
 				>
 					SignUp
 				</Button>

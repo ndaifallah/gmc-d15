@@ -16,6 +16,10 @@ const genderOptions = [
 ];
 const SizeOptions = [
 	{
+		value: "Extra small",
+		label: "Extra small",
+	},
+	{
 		value: "Small",
 		label: "Small",
 	},
