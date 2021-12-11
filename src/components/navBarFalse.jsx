@@ -15,7 +15,7 @@ class NavBarFalse extends Component {
 				<Button
 					type="primary"
 					style={{ width: 100, margin: 10 }}
-					onClick={() => this.props.history.push("/")}
+					onClick={() => this.props.history.push("/sellerspace")}
 				>
 					Profile
 				</Button>
