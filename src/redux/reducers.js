@@ -1,5 +1,11 @@
-const initialState = {};
+const initialState = {
+	logged: false,
+};
 
 export default (state = initialState, { type, payload }) => {
-	return { ...state, ...payload };
+	if (type == "LOGIN") {
+		let newState = { logged: true };
+		return newState;
+	}
+	return state;
 };

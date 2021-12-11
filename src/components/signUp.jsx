@@ -24,20 +24,13 @@ class Signup extends Component {
 				password1: password,
 			}),
 		};
-		let response = await fetch("http://localhost:780/signup", options);
+		let response = await fetch("http://192.168.43.237:780/signup", options);
 		console.log(response);
 		if (response.status == 200) {
 			this.props.history.push("/login", []);
 		}
 	};
-	///////////////////////////////////////////////////////////
-	// onFinish(values) {
-	//   console.log("Success:", values);
-	// }
-	// onFinish(values) {
-	//   console.log("Success:", values);
-	// }
-	////////////////////////////////////////////
+
 	render() {
 		return (
 			<div
@@ -49,10 +42,6 @@ class Signup extends Component {
 					justifyContent: "center",
 					alignItems: "center",
 					margin: "auto",
-					// position: "centre",
-					//right: 0,
-					//top: 0,
-					// backgroundColor: "red",
 				}}
 			>
 				<Form

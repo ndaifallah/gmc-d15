@@ -21,7 +21,7 @@ class LoginContainer extends Component {
 					border: " 1px solid rgba(255, 255, 255, 0.3)",
 				}}
 			>
-				<Login></Login>
+				<Login history={this.props.history}></Login>
 			</div>
 		);
 	}
