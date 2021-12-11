@@ -8,7 +8,6 @@ import LoginContainer from "./containers/logincontainer";
 import Checkoutcontainer from "./containers/checkoutcontainer";
 import store from "./redux/store";
 import Home from "./containers/home";
-import LoginContainer from "./containers/logincontainer";
 import Signup from "./components/signUp";
 
 class App extends Component {
