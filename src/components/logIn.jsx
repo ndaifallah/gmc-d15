@@ -36,7 +36,7 @@ class Login extends Component {
 				password: password,
 			}),
 		};
-		let response = await fetch("http://192.168.43.237:780/login", options);
+		let response = await fetch("http://localhost:780/login", options);
 		console.log(response);
 		let data = await response.json();
 		console.log(data);
@@ -45,7 +45,7 @@ class Login extends Component {
 			this.props.dispatch({
 				type: "LOGIN",
 			});
-			this.props.history.push("/home", []);
+			this.props.history.push("/", []);
 		}
 	};
 
