@@ -62,7 +62,9 @@ class AddArticle extends Component {
 				},
 				body: form,
 			};
-			await fetch("http://localhost:780/additem", options);
+
+			let data = await fetch("http://localhost:780/additem", options);
+			console.log(data);
 		} catch (err) {
 			console.log(err);
 		}
