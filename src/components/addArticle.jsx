@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Card, Input, Cascader, Button, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-
-import UploadImg from "./uploadImg";
 const { TextArea } = Input;
 const genderOptions = [
 	{
@@ -49,7 +47,7 @@ class AddArticle extends Component {
 		try {
 			let form = new FormData();
 			form.append("image", this.state.fileList[0].originFileObj);
-			form.append("name", this.state.name);
+			form.append("itemname", this.state.name);
 			form.append("description", this.state.description);
 			form.append("gender", this.state.gender);
 			form.append("size", this.state.size);
@@ -58,13 +56,13 @@ class AddArticle extends Component {
 			let options = {
 				method: "POST",
 				headers: {
-					token: localStorage.getItem("TOKEN"),
+					AuthToken: JSON.parse(localStorage.getItem("TOKEN")),
 				},
 				body: form,
 			};
 
-			let data = await fetch("http://localhost:780/additem", options);
-			console.log(data);
+			await fetch("http://localhost:780/additem", options);
+			this.props.history.push("/sellerspace");
 		} catch (err) {
 			console.log(err);
 		}
@@ -111,10 +109,18 @@ class AddArticle extends Component {
 					/>
 					<br />
 					<br />
-					<Cascader options={genderOptions} placeholder="Gender" />
+					<Cascader
+						options={genderOptions}
+						onChange={(value) => this.setState({ gender: value[0] })}
+						placeholder="Gender"
+					/>
 					<br />
 					<br />
-					<Cascader options={SizeOptions} placeholder="Size" />
+					<Cascader
+						options={SizeOptions}
+						onChange={(value) => this.setState({ size: value[0] })}
+						placeholder="Size"
+					/>
 					<br />
 					<br />
 					<Input
@@ -123,7 +129,7 @@ class AddArticle extends Component {
 					/>
 					<br />
 					<br />
-					{/* <UploadImg /> */}
+
 					<Upload
 						// action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
 						listType="picture"
