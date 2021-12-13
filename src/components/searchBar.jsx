@@ -49,8 +49,27 @@ const vendorOptions = [
 		label: "Said",
 	},
 ];
+
 class SearchBar extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			gender: "",
+			size: "",
+			vendor: "",
+		};
+	}
+	getItem = async (options) => {
+		fetch("http://192.168.1.1", options);
+	};
+
 	render() {
+		let options = {
+			gender: this.state.gender,
+			size: this.state.size,
+			vendor: this.props.vendor,
+		};
+
 		return (
 			<div
 				style={{
@@ -71,15 +90,30 @@ class SearchBar extends Component {
 						alignItems: "center",
 					}}
 				>
-					<Cascader options={genderOptions} placeholder="Gender" />
-					<Cascader options={SizeOptions} placeholder="Size" />
-					<Cascader options={vendorOptions} placeholder="Vendor" />
+					<Cascader
+						options={genderOptions}
+						placeholder="Gender"
+						onChange={(value) => this.setState({ gender: value[0] })}
+					/>
+					<Cascader
+						options={SizeOptions}
+						placeholder="Size"
+						onChange={(value) => this.setState({ size: value[0] })}
+					/>
+					<Cascader
+						options={vendorOptions}
+						placeholder="Vendor"
+						onChange={(value) => this.setState({ vendor: value[0] })}
+					/>
 				</div>
 
 				<Search
 					placeholder="input search text"
 					allowClear
-					onSearch={() => console.log("hey")}
+					onSearch={() => {
+						this.getItem(options);
+						console.log(options);
+					}}
 					style={{ width: 300, marginRight: 10 }}
 				/>
 			</div>
